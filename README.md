@@ -65,8 +65,8 @@ somatório 108.
 
 ## Referências
 
-[1] RIMSA, ANDREI - Repositório GitHub, @rimsa: tiny - Disponível em: https://github.com/rimsa/tiny. Acessado em 14 de Outubro de 2023.
+[1] RIMSA, ANDREI - Repositório GitHub, @rimsa: tiny - Disponível em: https://github.com/rimsa/tiny.
 
-[2] ASCANIO, DIEGO - Repositório GitHub, @DiegoAscanio: interpretador tiny incompleto - Disponível em: https://github.com/DiegoAscanio/interpretador-tiny-incompleto. Acessado em 11 de Outubro de 2023.
+[2] ASCANIO, DIEGO - Repositório GitHub, @DiegoAscanio: interpretador tiny incompleto - Disponível em: https://github.com/DiegoAscanio/interpretador-tiny-incompleto.
 
-[3] ASCANIO, DIEGO - Repositório GitHub, @DiegoAscanio: analizador lexico exemplo - Disponível em: https://github.com/DiegoAscanio/analisador-lexico-exemplo. Acessado em 10 de Outubro de 2023.
+[3] ASCANIO, DIEGO - Repositório GitHub, @DiegoAscanio: analizador lexico exemplo - Disponível em: https://github.com/DiegoAscanio/analisador-lexico-exemplo.
