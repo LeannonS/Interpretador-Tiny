@@ -53,7 +53,7 @@ Ao final, é exibido o valor do somatório.
 Por exemplo, para os números 4, 8, 15, 16, 23, 42, o interpretador produz o
 somatório 108.
 
-    $ Python3 Interpretador_Tiny/tinyi.py examples/somatorio.tiny
+    $ python3 Interpretador_Tiny/tinyi.py examples/somatorio.tiny
     4
     8
     15
