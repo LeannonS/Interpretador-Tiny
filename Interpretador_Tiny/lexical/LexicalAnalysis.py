@@ -56,7 +56,7 @@ class LexicalAnalysis:
           posicao_atual = posicao_atual + 1
           estado = 4
           
-        elif c[posicao_atual] in (';', '+', '-', '*', '%', '/'):
+        elif c[posicao_atual] in (';', '+', '-', '*', '%', '/', '^'):
           current_lexeme = current_lexeme + c[posicao_atual]
           posicao_atual = posicao_atual + 1
           estado = 7
