@@ -51,7 +51,7 @@ class SyntaticAnalysis:
         self.showError()
 
   # Esta função simplesmente avança para o próximo token, independentemente do tipo do token atual. Ela não verifica se o token é do tipo esperado; apenas incrementa o índice atual e atualiza currentToken.
-  def avancarProximoToken(self):
+  def nextToken(self):
     self.currentIndex += 1  
     self.currentToken = self.tokenList[self.currentIndex]
 
@@ -136,7 +136,7 @@ class SyntaticAnalysis:
     else_command = None
 
     if self.currentToken.type == TokenType.TT_ELSE:
-      self.avancarProximoToken()
+      self.nextToken()
       else_command = self.procCmdList()
 
     self.advance(TokenType.TT_DONE)
@@ -162,19 +162,19 @@ class SyntaticAnalysis:
   #                <intterm> (== | != | < | > | <= | >=) <intterm>
   def procBoolExpr(self):
     if self.currentToken.type == TokenType.TT_FALSE:
-      self.avancarProximoToken()
+      self.nextToken()
       linha = int(self.currentToken.linha)
       
       return ConstBoolExpr(linha, False)
 
     elif self.currentToken.type == TokenType.TT_TRUE:
-      self.avancarProximoToken()
+      self.nextToken()
       linha = int(self.currentToken.linha)
       
       return ConstBoolExpr(linha, False)
       
     elif self.currentToken.type == TokenType.TT_NOT:
-      self.avancarProximoToken()
+      self.nextToken()
       linha = int(self.currentToken.linha)
       bool_expr = self.procBoolExpr()
       
@@ -187,27 +187,27 @@ class SyntaticAnalysis:
 
       if self.currentToken.type == TokenType.TT_EQUAL:
         log_op = SingleBoolExpr.Op.TT_EQUAL
-        self.avancarProximoToken()
+        self.nextToken()
 
       elif self.currentToken.type == TokenType.TT_NOT_EQUAL:       
         log_op = SingleBoolExpr.Op.TT_NOT_EQUAL
-        self.avancarProximoToken()
+        self.nextToken()
 
       elif self.currentToken.type ==TokenType.TT_LOWER: 
         log_op = SingleBoolExpr.Op.TT_LOWER
-        self.avancarProximoToken()
+        self.nextToken()
 
       elif self.currentToken.type == TokenType.TT_LOWER_EQUAL:
         log_op = SingleBoolExpr.Op.TT_LOWER_EQUAL
-        self.avancarProximoToken()
+        self.nextToken()
 
       elif self.currentToken.type == TokenType.TT_GREATER: 
         log_op = SingleBoolExpr.Op.TT_GREATER
-        self.avancarProximoToken()
+        self.nextToken()
 
       elif self.currentToken.type == TokenType.TT_GREATER_EQUAL: 
         log_op = SingleBoolExpr.Op.TT_GREATER_EQUAL
-        self.avancarProximoToken()
+        self.nextToken()
 
       else:
         self.showError()
@@ -223,10 +223,10 @@ class SyntaticAnalysis:
     op = None
 
     if self.currentToken.type == TokenType.TT_ADD:
-      self.avancarProximoToken()
+      self.nextToken()
 
     elif self.currentToken.type == TokenType.TT_SUB:
-      self.avancarProximoToken()
+      self.nextToken()
       boolean = True
 
     if boolean:    
@@ -240,31 +240,31 @@ class SyntaticAnalysis:
 
     if self.currentToken.type == TokenType.TT_ADD:
       op = BinaryIntExpr.Op.TT_ADD
-      self.avancarProximoToken()
+      self.nextToken()
       right = self.procIntTerm()
       left = BinaryIntExpr (linha, left, op, right)
 
     elif self.currentToken.type == TokenType.TT_SUB:
       op = BinaryIntExpr.Op.TT_SUB
-      self.avancarProximoToken()
+      self.nextToken()
       right = self.procIntTerm()
       left = BinaryIntExpr (linha, left, op, right)
 
     elif self.currentToken.type == TokenType.TT_MUL:
       op = BinaryIntExpr.Op.TT_MUL
-      self.avancarProximoToken()
+      self.nextToken()
       right = self.procIntTerm()
       left = BinaryIntExpr (linha, left, op, right)
 
     elif self.currentToken.type == TokenType.TT_DIV:
       op = BinaryIntExpr.Op.TT_DIV
-      self.avancarProximoToken()
+      self.nextToken()
       right = self.procIntTerm()
       left = BinaryIntExpr (linha, left, op, right)
 
     elif self.currentToken.type == TokenType.TT_MOD:
       op = BinaryIntExpr.Op.TT_MOD
-      self.avancarProximoToken()
+      self.nextToken()
       right = self.procIntTerm()
       left = BinaryIntExpr (linha, left, op, right)
 
