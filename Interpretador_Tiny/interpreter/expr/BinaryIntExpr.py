@@ -2,7 +2,7 @@ from enum import Enum
 from interpreter.expr.Expr import Expr
 
 class BinaryIntExpr(Expr):
-  Op = Enum('Op', ['TT_ADD', 'TT_SUB', 'TT_MUL', 'TT_DIV', 'TT_MOD'])
+  Op = Enum('Op', ['TT_ADD', 'TT_SUB', 'TT_MUL', 'TT_DIV', 'TT_MOD', 'TT_POT'])
 
   OPERATOR_FUNCTIONS = {
     Op.TT_ADD: lambda x, y: x + y,
@@ -10,6 +10,7 @@ class BinaryIntExpr(Expr):
     Op.TT_MUL: lambda x, y: x * y,
     Op.TT_DIV: lambda x, y: x // y,
     Op.TT_MOD: lambda x, y: x % y,
+    Op.TT_POT: lambda x, y: x ** y,
   }
 
   def __init__(self, linha, left, operation, right):
