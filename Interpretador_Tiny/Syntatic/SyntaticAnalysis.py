@@ -27,7 +27,7 @@ class SyntaticAnalysis:
     self.tokenList = []
 
   def showError(self):
-    print(f"Linha {self.currentToken.linha}: {self.lex.arquivo_em_linhas[self.currentToken.linha-1]}")
+    print(f"Linha {self.currentToken.linha}: {self.lex.lines[self.currentToken.linha-1]}")
     
     if self.currentToken.type == TokenType.TT_INVALID_TOKEN:
       print(f"Lexema inválido [{self.currentToken.token}]")
@@ -264,6 +264,12 @@ class SyntaticAnalysis:
 
     elif self.currentToken.type == TokenType.TT_MOD:
       op = BinaryIntExpr.Op.TT_MOD
+      self.nextToken()
+      right = self.procIntTerm()
+      left = BinaryIntExpr (linha, left, op, right)
+      
+    elif self.currentToken.type == TokenType.TT_POT:
+      op = BinaryIntExpr.Op.TT_POT
       self.nextToken()
       right = self.procIntTerm()
       left = BinaryIntExpr (linha, left, op, right)
