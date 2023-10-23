@@ -19,6 +19,7 @@ SymbolTable = {
 	'*': TokenType.TT_MUL,
 	'/': TokenType.TT_DIV,
 	'%': TokenType.TT_MOD,
+	'^': TokenType.TT_POT,
 
 	# Palavras-chave da linguagem Tiny
 	'program': TokenType.TT_PROGRAM,
